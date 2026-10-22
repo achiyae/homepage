@@ -135,7 +135,8 @@ alumni:
 
 Our lab seeks new synergies between software engineering and artificial intelligence to improve their interoperability and contribute to both.
 
-Interested in joining? See the [recruiting information on the home page]({{ '/' | relative_url }}).
+{% assign home = site.pages | where: "url", "/" | first -%}
+{% if home.recruiting %}Interested in joining? See the [recruiting information on the home page]({{ '/' | relative_url }}).{% endif %}
 
 ## The Team
 

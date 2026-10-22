@@ -13,11 +13,11 @@ class LayoutTest < Minitest::Test
   def test_social_links
     hrefs = site_html("/").css("a").map { |a| a["href"] }
     [
-      "https://twitter.com/eggsterino",
+      "https://x.com/AElyasaf",
       "https://www.linkedin.com/in/achiyae/",
       "https://orcid.org/0000-0002-4009-5353",
       "https://scholar.google.co.il/citations?hl=en&user=EBx5rKoAAAAJ",
-      "https://dblp.uni-trier.de/pers/hd/e/Elyasaf:Achiya"
+      "https://dblp.org/pid/87/7184.html"
     ].each { |url| assert_includes hrefs, url }
   end
 

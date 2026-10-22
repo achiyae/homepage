@@ -26,6 +26,20 @@ class HomeTest < Minitest::Test
 
   def test_home_contact
     text = site_html("/").text
-    ["achiya AT bgu.ac.il", "Building 96, room 224", "actively recruiting"].each { |s| assert_includes text, s }
+    ["achiya AT bgu.ac.il", "Building 96, room 224"].each { |s| assert_includes text, s }
+  end
+
+  def test_recruiting_hidden_when_flag_off
+    refute site_html("/").at_css(".recruiting")
+    refute_includes site_html("/lab/").text, "Interested in joining"
+  end
+
+  def test_recruiting_include_renders_notice
+    doc = Nokogiri::HTML(render_include("recruiting.html"))
+    assert_includes doc.at_css("p.recruiting").text, "actively recruiting"
+  end
+
+  def test_no_faculty_page_link
+    refute site_html("/").css("a").any? { |a| a["href"].to_s.include?("in.bgu.ac.il") }
   end
 end

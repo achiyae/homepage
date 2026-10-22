@@ -2,6 +2,7 @@
 title: Home
 layout: default
 permalink: /
+recruiting: false  # true shows the "actively recruiting" notice here and on the Lab page
 news:
   - date: 2024-01-01
     title: "Deep Neural Crossover: A Multi-Parent Operator That Leverages Gene Correlations"
@@ -21,8 +22,7 @@ news:
   <div>
     <p>Faculty member at the Institute of Software, Systems, and Security, Faculty of Computer and Information Science, Ben-Gurion University of the Negev.</p>
     <p class="contact">Contact: achiya AT bgu.ac.il<br>Building 96, room 224</p>
-    <p class="recruiting">I am actively recruiting new MSc students, Ph.D. students, and post-docs. Positions come with funding. Please contact me for details.</p>
-    <p><a href="https://in.bgu.ac.il/engn/sisenew/Pages/default.aspx">Faculty page at Ben-Gurion University</a></p>
+    {% if page.recruiting %}{% include recruiting.html %}{% endif %}
   </div>
 </section>
 

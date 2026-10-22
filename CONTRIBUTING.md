@@ -13,6 +13,10 @@ File and folder names are **case-sensitive** on the server (Windows and macOS hi
 
 Indentation matters in YAML: use spaces (never tabs), and keep list items aligned with their neighbours. Quote values containing a colon, e.g. `title: "Note: a title"`.
 
+## Recruiting notice
+
+File: `index.md`, the `recruiting:` line at the top. Set it to `true` to show the "actively recruiting" notice on the Home page (and a pointer to it on the Lab page), or `false` to hide both. The notice text lives in `_includes/recruiting.html`.
+
 ## News item
 
 File: `index.md`, in the `news:` list at the top. Order does not matter; the site sorts by date. `date` (YYYY-MM-DD) and `title` are required; `link` and `text` are optional.

@@ -24,11 +24,11 @@ nav:
   - { title: "Grants & Awards", url: "/grants-awards/" }
 
 social:
-  - { name: "Twitter", url: "https://twitter.com/eggsterino", icon: "twitter" }
+  - { name: "X", url: "https://x.com/AElyasaf", icon: "twitter" }
   - { name: "LinkedIn", url: "https://www.linkedin.com/in/achiyae/", icon: "linkedin" }
   - { name: "ORCID", url: "https://orcid.org/0000-0002-4009-5353", icon: "orcid" }
   - { name: "Google Scholar", url: "https://scholar.google.co.il/citations?hl=en&user=EBx5rKoAAAAJ", icon: "google-scholar" }
-  - { name: "dblp", url: "https://dblp.uni-trier.de/pers/hd/e/Elyasaf:Achiya", icon: "dblp" }
+  - { name: "dblp", url: "https://dblp.org/pid/87/7184.html", icon: "dblp" }
 
 plugins:
   - jekyll-scholar
