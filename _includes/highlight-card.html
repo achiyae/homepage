@@ -1,0 +1,13 @@
+{%- assign h = include.h -%}
+<article class="highlight">
+  {%- if h.image %}
+  <img class="highlight-image" src="{{ h.image | relative_url }}" alt="{{ h.title | escape }}" loading="lazy">
+  {%- endif %}
+  <div class="highlight-body">
+    {%- if h.kind %}
+    <span class="highlight-kind">{{ h.kind | escape }}</span>
+    {%- endif %}
+    <h3><a href="{{ h.link }}">{{ h.title }}</a></h3>
+    {{ h.summary | markdownify }}
+  </div>
+</article>
