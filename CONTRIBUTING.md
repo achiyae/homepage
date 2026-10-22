@@ -79,7 +79,7 @@ The key (`Levi2026Example`) must be unique in the file, and every entry needs a 
 
 Not required: the PR check builds the site for you. To preview locally you need Ruby 3.3.
 
-**macOS / Linux:** install [rbenv](https://github.com/rbenv/rbenv) (macOS: `brew install rbenv ruby-build`), then `rbenv install 3.3` and `rbenv local 3.3`. Node.js 20+ is needed only for `rake check`.
+**macOS / Linux:** install [rbenv](https://github.com/rbenv/rbenv) (macOS: `brew install rbenv ruby-build`), then `rbenv install $(rbenv install -l | grep -E '^3\.3\.' | tail -1)` (the latest 3.3.x) and `rbenv local 3.3`. Node.js 20+ is needed only for `rake check`.
 
 **Windows:** in PowerShell 7 (`pwsh`), install [RubyInstaller with Devkit](https://rubyinstaller.org/downloads/) (3.3.x, accept the default `ridk install` step), then reopen the terminal.
 

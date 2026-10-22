@@ -10,10 +10,11 @@ end
 
 desc "Build, validate links, and run all tests"
 task :check do
+  rm_rf %w[_site _site_base]
   Jekyll::Commands::Build.process("quiet" => true)
   HTMLProofer.check_directory("_site", disable_external: true, enforce_https: false).run
 
-  sh "jekyll", "build", "--quiet", "--baseurl", "/homepage", "-d", "_site_base"
+  Jekyll::Commands::Build.process("quiet" => true, "baseurl" => "/homepage", "destination" => "_site_base")
 
   Rake::Task[:test].invoke
 

@@ -4,6 +4,7 @@ Source of [achiya.elyasaf.net](https://achiya.elyasaf.net), a Jekyll site publis
 
 ## Owner's one-time setup
 
-1. Settings -> Pages -> Source: **GitHub Actions**.
+1. Settings -> Pages -> Source: **GitHub Actions**. Do this first: until it is set, every workflow run (including PR checks) fails at `configure-pages`.
+   Also note that PRs from first-time contributors' forks need you to click "Approve and run" before CI runs.
 2. Optional: add a branch protection rule on `main` requiring the `build` check and review from code owners (`.github/CODEOWNERS`).
 3. After checking <https://achiyae.github.io/homepage/>, set the custom domain `achiya.elyasaf.net` in Settings -> Pages (with Actions-based deploys the `CNAME` file is ignored by GitHub and kept only as documentation), point the DNS CNAME record `achiya` at `achiyae.github.io`, and enable **Enforce HTTPS**.
