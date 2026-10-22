@@ -1,12 +1,12 @@
 {%- assign m = include.m -%}
 <article class="member">
   {%- if m.photo %}
-  <img class="member-photo" src="{{ m.photo | relative_url }}" alt="{{ m.name }}" loading="lazy">
+  <img class="member-photo" src="{{ m.photo | relative_url }}" alt="{{ m.name | escape }}" loading="lazy">
   {%- else %}
   {%- assign parts = m.name | split: " " %}
   <span class="member-initials" aria-hidden="true">{{ parts.first | slice: 0 | upcase }}{{ parts.last | slice: 0 | upcase }}</span>
   {%- endif %}
-  <h3>{{ m.name }}</h3>
+  <h3>{{ m.name | escape }}</h3>
   <p class="member-role">{{ m.role }}</p>
   {%- if m.topic %}
   <p class="member-topic">{{ m.topic }}</p>
@@ -16,17 +16,18 @@
   {%- endif %}
   {%- if m.email or m.linkedin or m.github or m.website %}
   <p class="member-links">
-    {%- if m.email %}{% assign ep = m.email | split: "@" %}
-    <a href="mailto:{{ m.email }}" aria-label="{{ m.name }} by email">{{ ep[0] }} AT {{ ep[1] }}</a>
+    {%- assign ep = m.email | split: "@" %}
+    {%- if ep.size == 2 %}
+    <a href="mailto:{{ ep[0] | escape }}@{{ ep[1] | escape }}" aria-label="{{ m.name | escape }} by email">{{ ep[0] | escape }} AT {{ ep[1] | escape }}</a>
     {%- endif %}
     {%- if m.linkedin %}
-    <a href="{{ m.linkedin }}" aria-label="{{ m.name }} on LinkedIn">LinkedIn</a>
+    <a href="{{ m.linkedin | escape }}" aria-label="{{ m.name | escape }} on LinkedIn">LinkedIn</a>
     {%- endif %}
     {%- if m.github %}
-    <a href="{{ m.github }}" aria-label="{{ m.name }} on GitHub">GitHub</a>
+    <a href="{{ m.github | escape }}" aria-label="{{ m.name | escape }} on GitHub">GitHub</a>
     {%- endif %}
     {%- if m.website %}
-    <a href="{{ m.website }}" aria-label="{{ m.name }} website">Website</a>
+    <a href="{{ m.website | escape }}" aria-label="{{ m.name | escape }} website">Website</a>
     {%- endif %}
   </p>
   {%- endif %}

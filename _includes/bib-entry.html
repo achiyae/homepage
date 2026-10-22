@@ -13,9 +13,9 @@
   {%- assign link = "" -%}
 {%- endif -%}
 <li class="pub" data-first-author="{{ first_author }}" data-authors="{{ names }}" data-topics="{{ entry.groups | escape }}">
-<span class="pub-title">{{ entry.title | strip }}</span>
+<span class="pub-title">{{ entry.title | strip | inline_html }}</span>
 <span class="pub-authors">{{ names | replace: "|", ", " }}</span>
-<span class="pub-venue">{{ venue }}{% if entry.volume != "" and entry.volume %}, vol. {{ entry.volume }}{% endif %}{% if entry.number != "" and entry.number %}, no. {{ entry.number }}{% endif %}{% if entry.pages != "" and entry.pages %}, pp. {{ entry.pages }}{% endif %}{% if entry.year %}, {{ entry.year }}{% endif %}</span>
+<span class="pub-venue">{{ venue | inline_html }}{% if entry.volume != "" and entry.volume %}, vol. {{ entry.volume }}{% endif %}{% if entry.number != "" and entry.number %}, no. {{ entry.number }}{% endif %}{% if entry.pages != "" and entry.pages %}, pp. {{ entry.pages }}{% endif %}{% if entry.year %}, {{ entry.year }}{% endif %}</span>
 {%- if link != "" %}
 <a class="pub-link" href="{{ link | escape }}">view online</a>
 {%- endif %}
