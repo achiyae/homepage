@@ -73,7 +73,7 @@ File: `_bibliography/publications.bib`. Paste a BibTeX entry (most publishers an
 }
 ```
 
-The key (`Levi2026Example`) must be unique in the file.
+The key (`Levi2026Example`) must be unique in the file, and every entry needs a 4-digit `year` (the build fails otherwise).
 
 ## Local preview (optional)
 

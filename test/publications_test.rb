@@ -13,6 +13,12 @@ class PublicationsTest < Minitest::Test
     assert_equal expected, pubs.size
   end
 
+  def test_rendered_years_match_bib_years
+    bib_years = BIB.scan(/^\s*year\s*=\s*[{"]?(\d{4})/).flatten.uniq.sort
+    rendered = page.css("#pub-list section.pub-year").map { |s| s["data-year"] }.sort
+    assert_equal bib_years, rendered
+  end
+
   def test_years_descending
     years = page.css("#pub-list section.pub-year").map { |s| s["data-year"].to_i }
     refute_empty years

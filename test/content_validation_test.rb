@@ -38,10 +38,10 @@ class ContentValidationTest < Minitest::Test
   end
 
   FakePage = Struct.new(:data, :path)
-  FakeSite = Struct.new(:pages)
+  FakeSite = Struct.new(:pages, :config, :source, :data)
 
   def generate(*pages)
-    CV::Generator.new({}).generate(FakeSite.new(pages))
+    CV::Generator.new({}).generate(FakeSite.new(pages, {}, Dir.mktmpdir("src"), {}))
   end
 
   def test_generator_replaces_news_with_normalized_sorted_list
@@ -56,5 +56,25 @@ class ContentValidationTest < Minitest::Test
     page = FakePage.new({ "members" => [{ "name" => "X" }] }, "lab.md")
     err = assert_raises(Jekyll::Errors::FatalException) { generate(page) }
     assert_match(/lab\.md.*item 1.*role/, err.message)
+  end
+
+  def bib_file(text)
+    f = File.join(Dir.mktmpdir("bib"), "t.bib")
+    File.write(f, text)
+    f
+  end
+
+  def test_bibliography_missing_year_names_key
+    err = assert_raises(CV::Error) { CV.validate_bibliography(bib_file("@article{Foo2020,\n title={T}\n}\n")) }
+    assert_match(/entry Foo2020 needs a 4-digit year/, err.message)
+  end
+
+  def test_bibliography_bad_year_raises
+    assert_raises(CV::Error) { CV.validate_bibliography(bib_file("@article{Foo,\n year={20}\n}\n")) }
+  end
+
+  def test_bibliography_years_newest_first
+    f = bib_file("@article{A,\n year={2019}\n}\n@article{B,\n year={2027}\n}\n@article{C,\n year={2019}\n}\n")
+    assert_equal %w[2027 2019], CV.validate_bibliography(f)
   end
 end

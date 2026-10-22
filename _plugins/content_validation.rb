@@ -1,5 +1,6 @@
 require "date"
 require "jekyll"
+require "bibtex"
 
 # Validates structured front matter (news, members, alumni, highlights) so that
 # mistakes fail the build with a message naming the file, item number and field.
@@ -60,11 +61,31 @@ module ContentValidation
     items
   end
 
+  # Returns the distinct years in the .bib, newest first; raises if any entry lacks a 4-digit year.
+  def validate_bibliography(path)
+    file = path.to_s.sub(%r{\A.*?(?=_bibliography/)}, "")
+    entries = BibTeX.open(path.to_s).data.grep(BibTeX::Entry)
+    entries.each do |entry|
+      year = entry[:year].to_s.strip
+      raise Error, "#{file}: entry #{entry.key} needs a 4-digit year" unless year.match?(/\A\d{4}\z/)
+    end
+    entries.map { |e| e[:year].to_s.strip }.uniq.sort.reverse
+  end
+
   class Generator < Jekyll::Generator
     safe true
     priority :high
 
     def generate(site)
+      scholar = site.config["scholar"] || {}
+      bib = File.join(site.source, scholar["source"] || "_bibliography", scholar["bibliography"] || "publications.bib")
+      if File.exist?(bib)
+        begin
+          site.data["bib_years"] = ContentValidation.validate_bibliography(bib)
+        rescue ContentValidation::Error => e
+          raise Jekyll::Errors::FatalException, e.message
+        end
+      end
       site.pages.each do |page|
         data = page.data
         file = page.path
