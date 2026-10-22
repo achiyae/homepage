@@ -14,6 +14,13 @@ class WorkflowTest < Minitest::Test
     assert_equal false, c["cancel-in-progress"]
   end
 
+  def test_build_job_can_read_pages_settings
+    # actions/configure-pages reads the Pages site config; without this it fails
+    # with "Resource not accessible by integration".
+    assert_equal "read", WF["jobs"]["build"]["permissions"]["pages"]
+    assert_equal "read", WF["jobs"]["build"]["permissions"]["contents"]
+  end
+
   def test_build_group_is_per_ref
     assert_includes WF["jobs"]["build"]["concurrency"]["group"], "github.ref"
   end
