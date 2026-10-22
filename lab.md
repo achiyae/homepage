@@ -33,13 +33,6 @@ members:
   topic: Deep learning-based operators for evolutionary algorithms
   email: eliads@post.bgu.ac.il
   linkedin: https://www.linkedin.com/in/eliad-shem-tov-5a39381a6/
-- name: Meir Maor Biton
-  role: M.Sc. student
-  topic: 'BP-Flow: A Flow-Based Behavioral Programming Language'
-  photo: "/assets/img/lab/meir-maor-biton.jpg"
-  email: bitme@post.bgu.ac.il
-  linkedin: https://www.linkedin.com/in/meir-biton-9b0688201
-  github: https://github.com/maor226
 - name: Ron Ziskind
   role: M.Sc. student
   photo: "/assets/img/lab/ron-ziskind.jpg"
@@ -47,19 +40,6 @@ members:
   email: ronzi@post.bgu.ac.il
   linkedin: https://www.linkedin.com/in/ron-ziskind-9aa61b220/
   github: https://github.com/ronzi-2002
-- name: Ron Tohar
-  role: M.Sc. student
-  topic: BP-based feature construction for deep reinforcement learning
-  photo: "/assets/img/lab/ron-tohar.jpg"
-  email: rontoh@post.bgu.ac.il
-  linkedin: https://www.linkedin.com/in/ron-tohar-7091861ba
-  github: https://github.com/ronTohar1
-- name: Benny Skidanov
-  role: M.Sc. student
-  photo: "/assets/img/lab/benny-skidanov.jpg"
-  topic: Human actions modeling and prediction
-  email: skidanov@post.bgu.ac.il
-  github: https://github.com/BennySkidanov
 - name: Tomer Halperin
   role: M.Sc. student
   topic: EC-KitY developer. Evolutionary algorithms & ML
@@ -87,13 +67,6 @@ members:
   email: almogzh@post.bgu.ac.il
   linkedin: https://www.linkedin.com/in/almog-zhivov-196b2626b/
   github: https://github.com/AlmogZhivov
-- name: Amit Foyershtein
-  role: M.Sc. student
-  topic: Green Neuroevolution
-  photo: "/assets/img/lab/amit-foyershtein.jpg"
-  email: amitfoye@post.bgu.ac.il
-  linkedin: https://www.linkedin.com/in/amit-oshri-foyershtein-7b572b266/
-  github: https://github.com/FoyerD
 - name: Shmulik Froimovich
   role: M.Sc. student
   photo: "/assets/img/lab/shmulik-froimovich.jpg"
@@ -136,6 +109,33 @@ alumni:
   email: itaitz@post.bgu.ac.il
   linkedin: https://www.linkedin.com/in/itai-tzruia-4a47a91b8/
   github: https://github.com/itaitzruia4
+- name: Meir Maor Biton
+  role: M.Sc. student
+  topic: 'BP-Flow: A Flow-Based Behavioral Programming Language'
+  photo: "/assets/img/lab/meir-maor-biton.jpg"
+  email: bitme@post.bgu.ac.il
+  linkedin: https://www.linkedin.com/in/meir-biton-9b0688201
+  github: https://github.com/maor226
+- name: Ron Tohar
+  role: M.Sc. student
+  topic: BP-based feature construction for deep reinforcement learning
+  photo: "/assets/img/lab/ron-tohar.jpg"
+  email: rontoh@post.bgu.ac.il
+  linkedin: https://www.linkedin.com/in/ron-tohar-7091861ba
+  github: https://github.com/ronTohar1
+- name: Benny Skidanov
+  role: M.Sc. student
+  photo: "/assets/img/lab/benny-skidanov.jpg"
+  topic: Human actions modeling and prediction
+  email: skidanov@post.bgu.ac.il
+  github: https://github.com/BennySkidanov
+- name: Amit Foyershtein
+  role: M.Sc. student
+  topic: Green Neuroevolution
+  photo: "/assets/img/lab/amit-foyershtein.jpg"
+  email: amitfoye@post.bgu.ac.il
+  linkedin: https://www.linkedin.com/in/amit-oshri-foyershtein-7b572b266/
+  github: https://github.com/FoyerD
 ---
 # AI & SE Integration Lab
 

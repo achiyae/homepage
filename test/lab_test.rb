@@ -38,8 +38,8 @@ class LabTest < Minitest::Test
 
   def test_lab_counts
     doc = site_html("/lab/")
-    assert_equal 18, doc.css(".members .member").size
-    assert_equal 3, doc.css(".alumni .member").size
+    assert_equal 14, doc.css(".members .member").size
+    assert_equal 7, doc.css(".alumni .member").size
   end
 
   def test_no_bug_typo
