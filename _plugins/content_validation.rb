@@ -30,8 +30,8 @@ module ContentValidation
   def normalize_news(items, file)
     require_fields(items, file, "news", %w[date title])
     items.each_with_index.map do |item, i|
-      item.merge("date" => parse_date(item["date"], file, i))
-    end.sort_by { |item| item["date"] }.reverse
+      [item.merge("date" => parse_date(item["date"], file, i)), i]
+    end.sort_by { |item, i| [-item["date"].jd, i] }.map(&:first)
   end
 
   def parse_date(value, file, index)

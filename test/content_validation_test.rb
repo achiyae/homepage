@@ -30,4 +30,31 @@ class ContentValidationTest < Minitest::Test
     err = assert_raises(CV::Error) { CV.validate_highlights([item], "research.md") }
     assert_match(/research\.md.*item 1.*kind/, err.message)
   end
+
+  def test_equal_dates_keep_authored_order
+    items = %w[a b c d].map { |t| { "date" => "2023-01-01", "title" => t } }
+    items.insert(2, { "date" => "2024-01-01", "title" => "new" })
+    assert_equal %w[new a b c d], CV.normalize_news(items, "index.md").map { |i| i["title"] }
+  end
+
+  FakePage = Struct.new(:data, :path)
+  FakeSite = Struct.new(:pages)
+
+  def generate(*pages)
+    CV::Generator.new({}).generate(FakeSite.new(pages))
+  end
+
+  def test_generator_replaces_news_with_normalized_sorted_list
+    page = FakePage.new({ "news" => [{ "date" => Date.new(2023, 1, 1), "title" => "a" },
+                                     { "date" => "2025-03-01", "title" => "b" }] }, "index.md")
+    generate(page)
+    assert_equal %w[b a], page.data["news"].map { |i| i["title"] }
+    assert(page.data["news"].all? { |i| i["date"].instance_of?(Date) })
+  end
+
+  def test_generator_raises_fatal_exception_for_invalid_members
+    page = FakePage.new({ "members" => [{ "name" => "X" }] }, "lab.md")
+    err = assert_raises(Jekyll::Errors::FatalException) { generate(page) }
+    assert_match(/lab\.md.*item 1.*role/, err.message)
+  end
 end
