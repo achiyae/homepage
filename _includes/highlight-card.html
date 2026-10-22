@@ -7,7 +7,7 @@
     {%- if h.kind %}
     <span class="highlight-kind">{{ h.kind | escape }}</span>
     {%- endif %}
-    <h3><a href="{{ h.link }}">{{ h.title }}</a></h3>
+    <h3><a href="{{ h.link | escape }}">{{ h.title }}</a></h3>
     {{ h.summary | markdownify }}
   </div>
 </article>

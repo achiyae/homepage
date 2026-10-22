@@ -28,4 +28,11 @@ class ResearchTest < Minitest::Test
     assert_nil html.at_css(".highlight-kind")
     assert_equal "T", html.at_css("h3 a").text.strip
   end
+
+  def test_link_is_escaped_in_href
+    url = "https://example.org/p?a=1&b=2\"x"
+    html = render_include("highlight-card.html", "h" => { "title" => "T", "summary" => "S", "link" => url })
+    refute_includes html, "b=2\"x"
+    assert_equal url, Nokogiri::HTML.fragment(html).at_css("h3 a")["href"]
+  end
 end
