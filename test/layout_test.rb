@@ -10,6 +10,19 @@ class LayoutTest < Minitest::Test
     assert_includes site_html("/").at_css("footer").text, "© Achiya Elyasaf since 2019"
   end
 
+  def test_footer_faculty_logo
+    %w[/ /lab/ /publications/].each do |path|
+      a = site_html(path).at_css("footer a.faculty-logo")
+      assert a, "faculty logo missing on #{path}"
+      assert_equal "https://www.bgu.ac.il/en/u/faculties/computer-and-information-science/", a["href"]
+      assert_equal "_blank", a["target"]
+      assert_includes a["rel"].to_s.split, "noopener"
+      img = a.at_css("img")
+      assert_match %r{/assets/img/faculty-logo\.png\z}, img["src"]
+      assert_includes img["alt"], "Stein Faculty of Computer and Information Science"
+    end
+  end
+
   def test_social_links
     hrefs = site_html("/").css("a").map { |a| a["href"] }
     [

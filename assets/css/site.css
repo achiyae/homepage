@@ -457,7 +457,20 @@ blockquote {
   font: 0.875rem var(--sans);
   color: var(--ink-soft);
 }
+.site-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+}
 .site-footer p { margin: 0; }
+.faculty-logo { display: inline-block; border-radius: var(--radius); line-height: 0; }
+.faculty-logo img { width: auto; height: 3rem; max-width: 100%; }
+@media (prefers-color-scheme: dark) {
+  /* The logo's grey lettering needs a light backdrop on dark pages. */
+  .faculty-logo { padding: 0.35rem 0.6rem; background: #fff; }
+}
 @media (min-width: 64rem) { .site-footer { padding-left: 3rem; padding-right: 3rem; } }
 
 @media (prefers-reduced-motion: reduce) {
