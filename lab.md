@@ -29,6 +29,7 @@ members:
   email: regevs@post.bgu.ac.il
 - name: Eliad Shem-Tov
   role: Ph.D. student
+  photo: "/assets/img/lab/eliad-shem-tov.jpg"
   topic: Deep learning-based operators for evolutionary algorithms
   email: eliads@post.bgu.ac.il
   linkedin: https://www.linkedin.com/in/eliad-shem-tov-5a39381a6/
@@ -41,6 +42,7 @@ members:
   github: https://github.com/maor226
 - name: Ron Ziskind
   role: M.Sc. student
+  photo: "/assets/img/lab/ron-ziskind.jpg"
   topic: Software Engineering in the Era of AI
   email: ronzi@post.bgu.ac.il
   linkedin: https://www.linkedin.com/in/ron-ziskind-9aa61b220/
@@ -54,6 +56,7 @@ members:
   github: https://github.com/ronTohar1
 - name: Benny Skidanov
   role: M.Sc. student
+  photo: "/assets/img/lab/benny-skidanov.jpg"
   topic: Human actions modeling and prediction
   email: skidanov@post.bgu.ac.il
   github: https://github.com/BennySkidanov
@@ -65,6 +68,7 @@ members:
   github: https://github.com/tomerhal
 - name: Ron Shefland
   role: M.Sc. student
+  photo: "/assets/img/lab/ron-shefland.jpg"
   topic: EC-KitY developer. Behavioral programs evolution
   email: ronshef@post.bgu.ac.il
   linkedin: https://www.linkedin.com/in/ron-shefland/
@@ -92,6 +96,7 @@ members:
   github: https://github.com/FoyerD
 - name: Shmulik Froimovich
   role: M.Sc. student
+  photo: "/assets/img/lab/shmulik-froimovich.jpg"
   topic: BP-Based Agentic AI
   email: shmulikf@post.bgu.ac.il
   linkedin: https://www.linkedin.com/in/shmulik-froimovich-6276a06
@@ -126,6 +131,7 @@ alumni:
   github: https://github.com/irenamal/EC-KitY/tree/assembly_code_generation
 - name: Itai Tzruia
   role: M.Sc. student
+  photo: "/assets/img/lab/itai-tzruia.jpg"
   topic: EC-KitY developer. Evolutionary algorithms & machine learning
   email: itaitz@post.bgu.ac.il
   linkedin: https://www.linkedin.com/in/itai-tzruia-4a47a91b8/
