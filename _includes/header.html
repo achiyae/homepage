@@ -1,8 +1,13 @@
-<header>
-  <a href="{{ '/' | relative_url }}">{{ site.title }}</a>
-  <nav>
+<header class="site-header">
+  <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+  <nav class="site-nav" aria-label="Main">
     {% for item in site.nav %}
     <a href="{{ item.url | relative_url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.title }}</a>
     {% endfor %}
   </nav>
+  <ul class="social">
+    {% for s in site.social %}
+    <li><a href="{{ s.url }}" rel="me noopener" aria-label="{{ s.name }}" title="{{ s.name }}">{% include social-icon.html icon=s.icon %}</a></li>
+    {% endfor %}
+  </ul>
 </header>
