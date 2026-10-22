@@ -18,16 +18,16 @@
   <p class="member-links">
     {%- assign ep = m.email | split: "@" %}
     {%- if ep.size == 2 %}
-    <a href="mailto:{{ ep[0] | escape }}@{{ ep[1] | escape }}" aria-label="{{ m.name | escape }} by email">{{ ep[0] | escape }} AT {{ ep[1] | escape }}</a>
+    <a href="mailto:{{ ep[0] | escape }}@{{ ep[1] | escape }}" aria-label="{{ m.name | escape }} by email" title="{{ ep[0] | escape }} AT {{ ep[1] | escape }}">{% include social-icon.html icon="email" %}</a>
     {%- endif %}
     {%- if m.linkedin %}
-    <a href="{{ m.linkedin | escape }}" aria-label="{{ m.name | escape }} on LinkedIn">LinkedIn</a>
+    <a href="{{ m.linkedin | escape }}" target="_blank" rel="noopener noreferrer" aria-label="{{ m.name | escape }} on LinkedIn" title="LinkedIn">{% include social-icon.html icon="linkedin" %}</a>
     {%- endif %}
     {%- if m.github %}
-    <a href="{{ m.github | escape }}" aria-label="{{ m.name | escape }} on GitHub">GitHub</a>
+    <a href="{{ m.github | escape }}" target="_blank" rel="noopener noreferrer" aria-label="{{ m.name | escape }} on GitHub" title="GitHub">{% include social-icon.html icon="github" %}</a>
     {%- endif %}
     {%- if m.website %}
-    <a href="{{ m.website | escape }}" aria-label="{{ m.name | escape }} website">Website</a>
+    <a href="{{ m.website | escape }}" target="_blank" rel="noopener noreferrer" aria-label="{{ m.name | escape }} website" title="Website">{% include social-icon.html icon="website" %}</a>
     {%- endif %}
   </p>
   {%- endif %}

@@ -358,7 +358,17 @@ blockquote {
 .member-role { color: var(--accent); font-weight: 500; }
 .member-topic { color: var(--ink-soft); }
 .member-now { font-style: italic; color: var(--ink-soft); }
-.member-links { display: flex; flex-wrap: wrap; gap: 0.1rem 0.9rem; margin-top: 0.5rem !important; font-size: 0.875rem; }
+.member-links { display: flex; flex-wrap: wrap; gap: 0.15rem; margin: 0.4rem 0 0 -0.4rem !important; }
+.member-links a {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  color: var(--ink-soft);
+  border-radius: var(--radius);
+}
+.member-links a:hover { color: var(--accent); background: var(--accent-wash); }
+.member-links svg { width: 1.1rem; height: 1.1rem; }
 
 /* ==========================================================================
    Publications

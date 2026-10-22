@@ -15,8 +15,25 @@ class LabTest < Minitest::Test
   def test_email_obfuscated
     html = card("name" => "A B", "role" => "r", "email" => "bitme@post.bgu.ac.il")
     a = html.at_css(".member-links a")
-    assert_equal "bitme AT post.bgu.ac.il", a.text
+    assert_equal "bitme AT post.bgu.ac.il", a["title"]
     assert_equal "mailto:bitme@post.bgu.ac.il", a["href"]
+    assert_nil a["target"], "mailto links stay in the same tab"
+  end
+
+  def test_links_are_icons_opening_in_new_tab
+    html = card("name" => "A B", "role" => "r", "email" => "a@b.c",
+                "linkedin" => "https://www.linkedin.com/in/x", "github" => "https://github.com/x", "website" => "https://x.dev")
+    links = html.css(".member-links a")
+    assert_equal 4, links.size
+    links.each do |a|
+      assert a.at_css("svg"), "#{a['href']} should be an icon"
+      assert_empty a.text.strip, "#{a['href']} should have no visible text"
+      refute_empty a["aria-label"].to_s
+    end
+    links.reject { |a| a["href"].start_with?("mailto:") }.each do |a|
+      assert_equal "_blank", a["target"]
+      assert_includes a["rel"].to_s.split, "noopener"
+    end
   end
 
   def test_lab_counts

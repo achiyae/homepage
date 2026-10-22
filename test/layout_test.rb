@@ -21,6 +21,15 @@ class LayoutTest < Minitest::Test
     ].each { |url| assert_includes hrefs, url }
   end
 
+  def test_social_links_open_in_new_tab
+    links = site_html("/").css("header .social a")
+    refute_empty links
+    links.each do |a|
+      assert_equal "_blank", a["target"]
+      assert_includes a["rel"].to_s.split, "noopener"
+    end
+  end
+
   def test_baseurl_prefix
     doc = Nokogiri::HTML(File.read(File.expand_path("../_site_base/index.html", __dir__), encoding: "UTF-8"))
     urls = doc.css('a[href^="/"]').map { |e| e["href"] } +
