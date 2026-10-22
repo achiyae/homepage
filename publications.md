@@ -23,3 +23,5 @@ Can't find a paper online? [Contact me](mailto:achiya@bgu.ac.il), or see [Google
   {%- endif -%}
 {%- endfor %}
 </div>
+
+<script type="module" src="{{ '/assets/js/publications.js' | relative_url }}"></script>
