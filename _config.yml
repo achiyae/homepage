@@ -28,3 +28,18 @@ social:
   - { name: "ORCID", url: "https://orcid.org/0000-0002-4009-5353", icon: "orcid" }
   - { name: "Google Scholar", url: "https://scholar.google.co.il/citations?hl=en&user=EBx5rKoAAAAJ", icon: "google-scholar" }
   - { name: "dblp", url: "https://dblp.uni-trier.de/pers/hd/e/Elyasaf:Achiya", icon: "dblp" }
+
+plugins:
+  - jekyll-scholar
+
+scholar:
+  source: ./_bibliography
+  bibliography: publications.bib
+  # jekyll-scholar treats this as a template string (or a layout name), so it includes the real template.
+  bibliography_template: "{% include bib-entry.html %}"
+  # bib-entry.html emits its own <li class="pub">; publications.md strips this placeholder wrapper.
+  bibliography_item_tag: bib-item
+  sort_by: year,month
+  order: descending
+  # No group_by: native grouping emits a bare heading + list with no section wrapper, so publications.md groups by year itself.
+  bibtex_filters: [latex, smallcaps, superscript]
