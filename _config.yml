@@ -1,0 +1,30 @@
+title: "Dr. Achiya Elyasaf"
+url: "https://achiya.elyasaf.net"
+baseurl: ""
+
+exclude:
+  - .superpowers
+  - .claude
+  - docs
+  - test
+  - Rakefile
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
+  - _site_base
+
+nav:
+  - { title: "Home", url: "/" }
+  - { title: "Biography", url: "/biography/" }
+  - { title: "Research", url: "/research/" }
+  - { title: "Lab", url: "/lab/" }
+  - { title: "Publications", url: "/publications/" }
+  - { title: "Grants & Awards", url: "/grants-awards/" }
+
+social:
+  - { name: "Twitter", url: "https://twitter.com/eggsterino", icon: "twitter" }
+  - { name: "LinkedIn", url: "https://www.linkedin.com/in/achiyae/", icon: "linkedin" }
+  - { name: "ORCID", url: "https://orcid.org/0000-0002-4009-5353", icon: "orcid" }
+  - { name: "Google Scholar", url: "https://scholar.google.co.il/citations?hl=en&user=EBx5rKoAAAAJ", icon: "google-scholar" }
+  - { name: "dblp", url: "https://dblp.uni-trier.de/pers/hd/e/Elyasaf:Achiya", icon: "dblp" }
