@@ -1,0 +1,20 @@
+{%- assign all = include.items -%}
+{%- if all and all.size > 0 -%}
+{%- assign shown = all | slice: 0, 8 -%}
+<ol class="news">
+{%- for item in shown %}
+  {% include news-item.html item=item %}
+{%- endfor %}
+</ol>
+{%- if all.size > 8 %}
+{%- assign rest = all | slice: 8, all.size %}
+<details class="news-more">
+  <summary>More news</summary>
+  <ol class="news">
+  {%- for item in rest %}
+    {% include news-item.html item=item %}
+  {%- endfor %}
+  </ol>
+</details>
+{%- endif -%}
+{%- endif -%}
