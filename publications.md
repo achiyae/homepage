@@ -5,7 +5,8 @@ permalink: /publications/
 ---
 # Publications
 
-Can't find a paper online? [Contact me](mailto:achiya@bgu.ac.il). This list may not be up to date; for the latest publications, see my [Google Scholar]({{ site.social | where: "name", "Google Scholar" | map: "url" | first }}) profile.
+This list may not be up to date; for the latest publications, see my [Google Scholar]({{ site.social | where: "name", "Google Scholar" | map: "url" | first }}) profile.\\
+Can't find a paper online? [Contact me](mailto:achiya@bgu.ac.il).
 
 <div id="pub-filters" hidden></div>
 
