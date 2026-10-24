@@ -19,5 +19,8 @@
 {%- if link != "" %}
 <a class="pub-link" href="{{ link | escape }}" target="_blank" rel="noopener noreferrer">view online</a>
 {%- endif %}
+{%- if entry.abstract != "" and entry.abstract %}
+<details class="pub-abstract"><summary>[abstract]</summary><p>{{ entry.abstract | strip | inline_html }}</p></details>
+{%- endif %}
 <details class="pub-bib"><summary>[bib]</summary><pre>{{ entry.bibtex | escape }}</pre></details>
 </li>

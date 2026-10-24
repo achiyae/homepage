@@ -96,5 +96,16 @@ class PublicationsTest < Minitest::Test
   def test_copyright_notice
     assert_includes page.text, "Copyright and all rights therein are maintained by the authors"
     assert page.at_css("#pub-filters[hidden]")
+    notice = page.at_css("p.pub-copyright")
+    refute_nil notice
+    assert notice.matches?("#pub-list ~ p"), "copyright notice should follow the publication list"
+  end
+
+  def test_abstract_toggle
+    abstract = gp_rush.at_css("details.pub-abstract")
+    refute_nil abstract
+    assert_equal "[abstract]", abstract.at_css("summary").text
+    assert_match(/IDA\* search/, abstract.at_css("p").text)
+    refute_match(/abstract\s*=/, gp_rush.at_css("details.pub-bib pre").text)
   end
 end

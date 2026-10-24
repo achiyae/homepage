@@ -276,6 +276,7 @@ blockquote {
 
 .news-more { margin-top: 0; }
 .news-more > summary,
+.pub-abstract > summary,
 .pub-bib > summary {
   cursor: pointer;
   font: 500 var(--step--1) var(--sans);
@@ -428,9 +429,15 @@ blockquote {
 .pub-authors { display: block; margin-top: 0.2rem; color: var(--ink-soft); font-size: 0.95rem; }
 .pub-venue { display: block; margin-top: 0.1rem; font-style: italic; font-size: 0.95rem; }
 .pub-link { font: 500 var(--step--1) var(--sans); margin-right: 1rem; }
+.pub-abstract,
 .pub-bib { display: inline-block; max-width: 100%; vertical-align: top; }
+.pub-abstract { margin-right: 1rem; }
+.pub-abstract > summary,
 .pub-bib > summary { display: inline; padding: 0; }
+.pub-abstract[open],
 .pub-bib[open] { display: block; margin-top: 0.4rem; }
+.pub-abstract p { margin: 0.4rem 0 0; max-width: 70ch; font-size: 0.95rem; color: var(--ink-soft); }
+.pub-copyright { margin-top: 3rem; font-size: var(--step--1); color: var(--ink-soft); }
 .pub-bib pre {
   margin: 0.5rem 0 0;
   padding: 0.8rem 1rem;
