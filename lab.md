@@ -15,6 +15,17 @@ members:
   email: geraw@bgu.ac.il
   linkedin: https://www.linkedin.com/in/gera-weiss-0a640016/
   github: https://github.com/geraw
+- name: Eliad Shem-Tov
+  role: Ph.D. student
+  photo: "/assets/img/lab/eliad-shem-tov.jpg"
+  topic: Deep learning-based operators for evolutionary algorithms
+  email: eliads@post.bgu.ac.il
+  linkedin: https://www.linkedin.com/in/eliad-shem-tov-5a39381a6/
+- name: Shimon Regev
+  role: Ph.D. student
+  topic: Evolutionary algorithms for multi-objective games
+  photo: "/assets/img/lab/shimon-regev.jpg"
+  email: regevs@post.bgu.ac.il
 - name: Roy Polianski
   role: Ph.D. student
   topic: Behavioral programs evolution
@@ -22,17 +33,6 @@ members:
   email: roypoli@post.bgu.ac.il
   linkedin: https://www.linkedin.com/in/roy-poliansky-4275b0201/
   github: https://github.com/RoyPoli99
-- name: Shimon Regev
-  role: Ph.D. student
-  topic: Evolutionary algorithms for multi-objective games
-  photo: "/assets/img/lab/shimon-regev.jpg"
-  email: regevs@post.bgu.ac.il
-- name: Eliad Shem-Tov
-  role: Ph.D. student
-  photo: "/assets/img/lab/eliad-shem-tov.jpg"
-  topic: Deep learning-based operators for evolutionary algorithms
-  email: eliads@post.bgu.ac.il
-  linkedin: https://www.linkedin.com/in/eliad-shem-tov-5a39381a6/
 - name: Ron Ziskind
   role: M.Sc. student
   photo: "/assets/img/lab/ron-ziskind.jpg"
