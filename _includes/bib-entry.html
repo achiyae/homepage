@@ -17,7 +17,7 @@
 <span class="pub-authors">{{ names | replace: "|", ", " }}</span>
 <span class="pub-venue">{{ venue | inline_html }}{% if entry.volume != "" and entry.volume %}, vol. {{ entry.volume }}{% endif %}{% if entry.number != "" and entry.number %}, no. {{ entry.number }}{% endif %}{% if entry.pages != "" and entry.pages %}, pp. {{ entry.pages }}{% endif %}{% if entry.year %}, {{ entry.year }}{% endif %}</span>
 {%- if link != "" %}
-<a class="pub-link" href="{{ link | escape }}">view online</a>
+<a class="pub-link" href="{{ link | escape }}" target="_blank" rel="noopener noreferrer">view online</a>
 {%- endif %}
 <details class="pub-bib"><summary>[bib]</summary><pre>{{ entry.bibtex | escape }}</pre></details>
 </li>

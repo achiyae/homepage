@@ -53,10 +53,44 @@ class PublicationsTest < Minitest::Test
     end
   end
 
+  def test_links_open_in_new_tab
+    links = pubs.map { |li| li.at_css("a.pub-link") }.compact
+    refute_empty links
+    links.each do |a|
+      assert_equal "_blank", a["target"]
+      assert_equal "noopener noreferrer", a["rel"]
+    end
+  end
+
+  def test_topics_limited_to_allowed_set
+    allowed = ["Artificial Intelligence", "Behavioral Programming", "Evolutionary Computation", "Machine Learning", "Testing", "Software Engineering"]
+    pubs.each do |li|
+      li["data-topics"].to_s.split(",").map(&:strip).each do |t|
+        assert_includes allowed, t, "unexpected topic on #{li.at_css('.pub-title').text}"
+      end
+    end
+  end
+
+  def test_bp_and_testing_are_software_engineering
+    pubs.each do |li|
+      topics = li["data-topics"].to_s.split(",").map(&:strip)
+      next unless topics.include?("Behavioral Programming") || topics.include?("Testing")
+      assert_includes topics, "Software Engineering", li.at_css(".pub-title").text
+    end
+  end
+
+  def test_ec_and_ml_are_ai
+    pubs.each do |li|
+      topics = li["data-topics"].to_s.split(",").map(&:strip)
+      next unless topics.include?("Evolutionary Computation") || topics.include?("Machine Learning")
+      assert_includes topics, "Artificial Intelligence", li.at_css(".pub-title").text
+    end
+  end
+
   def test_first_author_attr
     assert_equal "Ami Hauptman", gp_rush["data-first-author"]
     assert_equal "Ami Hauptman|Achiya Elyasaf|Moshe Sipper|Assaf Karmon", gp_rush["data-authors"]
-    assert_equal "Evolutionary Computation, Artificial Intelligence, Hyper-Heuristics", gp_rush["data-topics"]
+    assert_equal "Artificial Intelligence, Evolutionary Computation", gp_rush["data-topics"]
   end
 
   def test_copyright_notice

@@ -64,7 +64,7 @@ File: `research.md`, in the `highlights:` list. `title`, `summary` and `link` ar
 
 ## Publication
 
-File: `_bibliography/publications.bib`. Paste a BibTeX entry (most publishers and Google Scholar offer "Cite -> BibTeX") and add a `groups` field: a comma-separated list of topics. Reuse existing topic names exactly (for example `Evolutionary Computation`, `Behavioral Programming`, `Artificial Intelligence`, `Deep Learning`, `Testing`) so the filters on the Publications page stay tidy.
+File: `_bibliography/publications.bib`. Paste a BibTeX entry (most publishers and Google Scholar offer "Cite -> BibTeX") and add a `groups` field: a comma-separated list of topics. Use only these topic names, spelled exactly: `Artificial Intelligence`, `Behavioral Programming`, `Evolutionary Computation`, `Machine Learning`, `Testing`, `Software Engineering`.
 
 ```bibtex
 @InProceedings{Levi2026Example,
