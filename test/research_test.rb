@@ -3,9 +3,7 @@ require_relative "test_helper"
 class ResearchTest < Minitest::Test
   TITLES = [
     "Towards Better Interoperability Between Software and AI",
-    "What Petri Nets Oblige Us to Say: Comparing Approaches for Behavior Composition",
-    "EC-KitY",
-    "Context-Oriented Behavioral Programming"
+    "EC-KitY"
   ].freeze
 
   def test_research_order

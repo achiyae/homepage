@@ -105,7 +105,8 @@ main {
   .page-publications main,
   .page-lab main,
   .page-research main,
-  .page-dl-operators main { max-width: 64rem; }
+  .page-dl-operators main,
+  .page-behavioral-programming main { max-width: 64rem; }
 }
 
 /* ==========================================================================
@@ -386,6 +387,8 @@ main figcaption cite { font-style: italic; }
 .evo-ours-sub { font: 500 15px var(--sans); fill: var(--accent); }
 .evo-core-label { font: 650 18px var(--serif); fill: var(--ink); }
 .evo-core-note { font: 400 12px var(--sans); fill: var(--ink-soft); }
+.bp-thread { fill: var(--surface); stroke: var(--line); stroke-width: 1.5; }
+.bp-tie { fill: none; stroke: var(--line); stroke-width: 2; }
 
 .topic-papers { margin: 2rem 0 0; }
 main h2:has(.to-top) {
