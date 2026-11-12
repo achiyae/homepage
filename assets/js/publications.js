@@ -77,6 +77,21 @@ export function init(doc = document) {
     bar.replaceChildren(search, hint, selFirst, selAuthor, selTopic, reset);
     list.appendChild(empty);
 
+    // Turn each topic tag into a button that sets the Topic filter (other filters are kept).
+    const tagButtons = [];
+    for (const li of list.querySelectorAll(".pub-tags li")) {
+      const topic = li.textContent.trim();
+      const btn = el(doc, "button", {
+        type: "button",
+        class: "pub-tag",
+        "data-topic": topic,
+        "aria-pressed": "false",
+        title: `Filter by topic: ${topic}`,
+      }, topic);
+      li.replaceChildren(btn);
+      tagButtons.push(btn);
+    }
+
     const apply = () => {
       const state = {
         query: search.value,
@@ -94,7 +109,17 @@ export function init(doc = document) {
         s.hidden = !s.querySelector("li.pub:not([hidden])");
       }
       empty.hidden = shown > 0;
+      for (const btn of tagButtons) {
+        btn.setAttribute("aria-pressed", String(btn.dataset.topic === state.topic));
+      }
     };
+
+    list.addEventListener("click", (e) => {
+      const btn = e.target.closest("button.pub-tag");
+      if (!btn) return;
+      selTopic.value = btn.dataset.topic;
+      apply();
+    });
 
     bar.addEventListener("input", apply);
     bar.addEventListener("change", apply);
