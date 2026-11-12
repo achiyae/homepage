@@ -436,6 +436,18 @@ blockquote {
   background: var(--accent-wash);
   border-radius: 999px;
 }
+.pub-tags li:has(> .pub-tag) { padding: 0; background: none; }
+.pub-tag {
+  padding: 0.1rem 0.55rem;
+  font: inherit;
+  color: var(--accent);
+  background: var(--accent-wash);
+  border: 1px solid transparent;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.pub-tag:hover { border-color: var(--accent); }
+.pub-tag[aria-pressed="true"] { color: var(--accent-ink); background: var(--accent); }
 .pub-link { font: 500 var(--step--1) var(--sans); margin-right: 1rem; }
 .pub-abstract,
 .pub-bib { display: inline-block; max-width: 100%; vertical-align: top; }
