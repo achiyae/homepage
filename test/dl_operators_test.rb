@@ -64,13 +64,11 @@ class DlOperatorsTest < Minitest::Test
     end
   end
 
-  def test_each_topic_has_a_back_to_top_link
+  def test_each_topic_title_has_a_back_to_top_link
     TOPIC_PAPERS.each_key do |id|
-      node = doc.at_css("h2##{id}").next_element
-      node = node.next_element until node.nil? || node.name == "h2" || node.matches?(".to-top")
-      refute_nil node, "##{id} has no back-to-top link"
-      assert_equal "p", node.name, "##{id} has no back-to-top link"
-      assert_equal "#main", node.at_css("a")["href"]
+      link = doc.at_css("h2##{id} a.to-top")
+      refute_nil link, "##{id} has no back-to-top link"
+      assert_equal "#main", link["href"]
     end
   end
 

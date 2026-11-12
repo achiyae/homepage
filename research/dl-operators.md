@@ -85,7 +85,7 @@ We treat an evolutionary run as a stream of training data. Every generation show
 <figcaption>Each stage of the loop, the classical operator it used, and the learned operator that replaces it. Select a stage to jump to its section.</figcaption>
 </figure>
 
-## Crossover: Deep Neural Crossover {#crossover}
+## Crossover: Deep Neural Crossover <a class="to-top" href="#main">Back to top</a> {#crossover}
 
 [Deep Neural Crossover](#crossover-ShemTov2024DNC) (DNC) is a multi-parent crossover operator for GAs. An encoder embeds each parent's genes in a shared latent space, much as language models embed words, and an LSTM summarizes each parent. A decoder with a pointer network then builds the child one gene at a time, choosing which parent to copy from at each position based on the genes chosen so far. Trained with the child's fitness as reward, DNC learns linear and non-linear correlations between genes that random crossover ignores, and it outperformed all baseline operators on graph coloring and bin packing. A transfer-learning variant trains on one problem instance and reuses the network on others from the same domain.
 
@@ -105,9 +105,8 @@ Learned operators cost energy as well as time. A [follow-up study](#crossover-Fo
 <h3>Papers</h3>
 {% include paper-list.html topic="crossover" keys=page.papers.crossover %}
 </div>
-<p class="to-top"><a href="#main">Back to top</a></p>
 
-## Mutation: BERT Mutation {#mutation}
+## Mutation: BERT Mutation <a class="to-top" href="#main">Back to top</a> {#mutation}
 
 [BERT Mutation](#mutation-shem2025bert) borrows masked language modeling from natural-language processing. For GP, an individual's tree is written out as a sequence of tokens, some nodes are masked, and a BERT transformer predicts replacements for the masks one at a time. Sampling is restricted to valid choices, so a terminal is replaced only by a terminal and a function only by a function of the same arity. The model is trained with reinforcement learning to prefer replacements that raise fitness. Across symbolic regression, classification and the Artificial Ant problem, it outperformed conventional and state-of-the-art mutation operators in both convergence speed and solution quality.
 
@@ -127,9 +126,8 @@ Extending the idea to GAs is harder: a fixed-length integer or binary vector has
 <h3>Papers</h3>
 {% include paper-list.html topic="mutation" keys=page.papers.mutation %}
 </div>
-<p class="to-top"><a href="#main">Back to top</a></p>
 
-## Selection: Deep Tournament Selection {#selection}
+## Selection: Deep Tournament Selection <a class="to-top" href="#main">Back to top</a> {#selection}
 
 Selection decides how strongly the search exploits good solutions versus exploring new ones, yet classical schemes apply the same rule throughout the run. [Deep Tournament Selection](#selection-ShemTov2026DeepTournamentSelection) (DTS) reformulates tournament selection for GAs as a Markov decision process. A Transformer encoder with global and local rank-based positional encodings scores the candidates in each tournament, and a self-attention pointer picks the winner. The policy is trained fully online, needs no extra fitness evaluations, and adjusts its selection pressure as the population evolves. On Graph Coloring, Set Cover and the Traveling Salesman Problem, DTS converged faster and found better solutions than classical and dynamic selection baselines, with negligible overhead and no loss of diversity.
 
@@ -147,9 +145,8 @@ Selection decides how strongly the search exploits good solutions versus explori
 <h3>Papers</h3>
 {% include paper-list.html topic="selection" keys=page.papers.selection %}
 </div>
-<p class="to-top"><a href="#main">Back to top</a></p>
 
-## Evaluation: fitness approximation {#evaluation}
+## Evaluation: fitness approximation <a class="to-top" href="#main">Back to top</a> {#evaluation}
 
 When fitness comes from a costly simulator, the cheapest evaluation is the one you never run. Our [fitness-approximation method](#evaluation-Tzruia2023FitnessApproximationMachine) trains a machine-learning model on every individual a GA has evaluated so far and lets the GA switch dynamically between two modes. In *evolution mode*, every individual is simulated. In *prediction mode*, only a sample of the population is simulated, the rest receive the model's prediction, and the model is retrained before the next generation. Evaluated on agents evolved in Gymnasium game simulators, the approach cut runtimes significantly while reaching fitness identical to, or slightly below, a fully simulated GA.
 
@@ -162,4 +159,3 @@ When fitness comes from a costly simulator, the cheapest evaluation is the one y
 <h3>Papers</h3>
 {% include paper-list.html topic="evaluation" keys=page.papers.evaluation %}
 </div>
-<p class="to-top"><a href="#main">Back to top</a></p>
