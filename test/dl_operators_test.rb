@@ -54,11 +54,23 @@ class DlOperatorsTest < Minitest::Test
     links.each { |href| refute_nil doc.at_css("[id='#{href.delete_prefix('#')}']"), "#{href} has no target" }
   end
 
+  # The GPTP chapter surveys DNC and BERT Mutation and is only listed, not cited in the text.
   def test_every_paper_is_linked_from_the_text
     linked = doc.css("main a[href^='#']").map { |a| a["href"].delete_prefix("#") }
     doc.css(".pub-list > li.pub").each do |li|
       key = li["id"].split("-", 2).last
+      next if key == "ShemTov2024DLOperators"
       assert linked.any? { |l| l.end_with?("-#{key}") }, "nothing links to #{key}"
+    end
+  end
+
+  def test_each_topic_has_a_back_to_top_link
+    TOPIC_PAPERS.each_key do |id|
+      node = doc.at_css("h2##{id}").next_element
+      node = node.next_element until node.nil? || node.name == "h2" || node.matches?(".to-top")
+      refute_nil node, "##{id} has no back-to-top link"
+      assert_equal "p", node.name, "##{id} has no back-to-top link"
+      assert_equal "#main", node.at_css("a")["href"]
     end
   end
 

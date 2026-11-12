@@ -31,7 +31,7 @@ Fitness evaluation is the second bottleneck. When computing an individual's fitn
 
 ## Learning to evolve
 
-We treat an evolutionary run as a stream of training data. Every generation shows which parents produced good offspring, which edits improved an individual, and which selections paid off. Our operators are deep networks trained *online*, inside the run, mostly with policy-gradient reinforcement learning whose reward is the fitness of the offspring they produce. The result is an operator that adapts to the problem at hand while staying domain-independent: each one plugs into a standard genetic algorithm (GA) or genetic programming (GP) loop and replaces a single step. Our [GPTP XXI chapter](#crossover-ShemTov2024DLOperators) gives an overview of the first two operators.
+We treat an evolutionary run as a stream of training data. Every generation shows which parents produced good offspring, which edits improved an individual, and which selections paid off. Our operators are deep networks trained *online*, inside the run, mostly with policy-gradient reinforcement learning whose reward is the fitness of the offspring they produce. The result is an operator that adapts to the problem at hand while staying domain-independent: each one plugs into a standard genetic algorithm (GA) or genetic programming (GP) loop and replaces a single step.
 
 <figure class="evo-loop">
 <svg viewBox="0 0 640 440" role="img" aria-labelledby="evo-loop-title evo-loop-desc">
@@ -105,6 +105,7 @@ Learned operators cost energy as well as time. A [follow-up study](#crossover-Fo
 <h3>Papers</h3>
 {% include paper-list.html topic="crossover" keys=page.papers.crossover %}
 </div>
+<p class="to-top"><a href="#main">Back to top</a></p>
 
 ## Mutation: BERT Mutation {#mutation}
 
@@ -126,6 +127,7 @@ Extending the idea to GAs is harder: a fixed-length integer or binary vector has
 <h3>Papers</h3>
 {% include paper-list.html topic="mutation" keys=page.papers.mutation %}
 </div>
+<p class="to-top"><a href="#main">Back to top</a></p>
 
 ## Selection: Deep Tournament Selection {#selection}
 
@@ -145,6 +147,7 @@ Selection decides how strongly the search exploits good solutions versus explori
 <h3>Papers</h3>
 {% include paper-list.html topic="selection" keys=page.papers.selection %}
 </div>
+<p class="to-top"><a href="#main">Back to top</a></p>
 
 ## Evaluation: fitness approximation {#evaluation}
 
@@ -159,3 +162,4 @@ When fitness comes from a costly simulator, the cheapest evaluation is the one y
 <h3>Papers</h3>
 {% include paper-list.html topic="evaluation" keys=page.papers.evaluation %}
 </div>
+<p class="to-top"><a href="#main">Back to top</a></p>
