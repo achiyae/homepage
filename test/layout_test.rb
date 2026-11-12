@@ -43,6 +43,13 @@ class LayoutTest < Minitest::Test
     end
   end
 
+  def test_canonical_link
+    { "/" => "https://achiya.elyasaf.net/", "/lab/" => "https://achiya.elyasaf.net/lab/" }.each do |path, url|
+      links = site_html(path).css('head link[rel="canonical"]')
+      assert_equal [url], links.map { |l| l["href"] }, "canonical on #{path}"
+    end
+  end
+
   def test_baseurl_prefix
     doc = Nokogiri::HTML(File.read(File.expand_path("../_site_base/index.html", __dir__), encoding: "UTF-8"))
     urls = doc.css('a[href^="/"]').map { |e| e["href"] } +
