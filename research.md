@@ -3,10 +3,6 @@ title: "Research"
 layout: default
 permalink: /research/
 highlights:
-- title: "Towards Better Interoperability Between Software and AI"
-  kind: talk
-  link: https://www.youtube.com/watch?v=yD6o_-ZKogs
-  summary: "A recording of a lecture given at the international colloquium \"AI meets Software Quality\". It presents ongoing work on creating a synergy between artificial intelligence and software engineering, with Behavioral Programming at its core."
 - title: "EC-KitY"
   kind: software
   link: https://www.sciencedirect.com/science/article/pii/S2352711023000778

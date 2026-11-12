@@ -2,7 +2,7 @@ require "test_helper"
 
 class SitemapTest < Minitest::Test
   SITE_URL = "https://achiya.elyasaf.net"
-  PAGES = %w[/ /biography/ /grants-awards/ /lab/ /publications/ /research/ /research/behavioral-programming/ /research/dl-operators/].freeze
+  PAGES = %w[/ /biography/ /grants-awards/ /lab/ /publications/ /research/ /research/behavioral-programming/ /research/dl-operators/ /talks/].freeze
 
   def sitemap_urls(dir)
     doc = Nokogiri::XML(File.read(File.join(ROOT, dir, "sitemap.xml"), encoding: "UTF-8"))

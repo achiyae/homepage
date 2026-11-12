@@ -1,19 +1,16 @@
 require_relative "test_helper"
 
 class ResearchTest < Minitest::Test
-  TITLES = [
-    "Towards Better Interoperability Between Software and AI",
-    "EC-KitY"
-  ].freeze
+  TITLES = ["EC-KitY"].freeze
 
   def test_research_order
     doc = site_html("/research/")
     assert_equal TITLES, doc.css(".highlight h3").map { |h| h.text.strip }
   end
 
-  def test_talk_badge
+  def test_kind_badge
     doc = site_html("/research/")
-    assert_equal "talk", doc.css(".highlight")[0].at_css(".highlight-kind").text.strip
+    assert_equal "software", doc.css(".highlight")[0].at_css(".highlight-kind").text.strip
   end
 
   def test_card_without_image

@@ -3,7 +3,7 @@ require "test_helper"
 class LayoutTest < Minitest::Test
   def test_nav_order
     texts = site_html("/").css("nav a").map { |a| a.text.strip }
-    assert_equal ["Home", "Biography", "Research", "Lab", "Publications", "Grants & Awards"], texts
+    assert_equal ["Home", "Biography", "Research", "Talks", "Lab", "Publications", "Grants & Awards"], texts
   end
 
   def test_footer

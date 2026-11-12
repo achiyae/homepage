@@ -21,6 +21,7 @@ nav:
   - { title: "Home", url: "/" }
   - { title: "Biography", url: "/biography/" }
   - { title: "Research", url: "/research/" }
+  - { title: "Talks", url: "/talks/" }
   - { title: "Lab", url: "/lab/" }
   - { title: "Publications", url: "/publications/" }
   - { title: "Grants & Awards", url: "/grants-awards/" }
