@@ -93,6 +93,14 @@ class PublicationsTest < Minitest::Test
     assert_equal "Artificial Intelligence, Evolutionary Computation", gp_rush["data-topics"]
   end
 
+  def test_tags_shown_for_each_publication
+    assert_equal ["Artificial Intelligence", "Evolutionary Computation"], gp_rush.css("ul.pub-tags li").map { |li| li.text.strip }
+    pubs.each do |li|
+      expected = li["data-topics"].to_s.split(",").map(&:strip).reject(&:empty?)
+      assert_equal expected, li.css("ul.pub-tags li").map { |t| t.text.strip }, li.at_css(".pub-title").text
+    end
+  end
+
   def test_copyright_notice
     assert_includes page.text, "Copyright and all rights therein are maintained by the authors"
     assert page.at_css("#pub-filters[hidden]")
