@@ -22,7 +22,7 @@ permalink: /grants-awards/
 ## Awards and fellowships
 
 <ul class="cv-list">
-<li><span class="cv-year">2025</span><div><strong>Innovation in Teaching Award</strong><br>Ben-Gurion University.</div></li>
+<li><span class="cv-year">2025</span><div><strong><a href="https://ummedia.bgu.ac.il/media/z1odxqxn/%D7%A4%D7%95%D7%A1%D7%98%D7%A8-%D7%AA%D7%A9%D7%A4%D7%94.jpg">Innovation in Teaching Award</a></strong><br>Ben-Gurion University.</div></li>
 <li><span class="cv-year">2017</span><div><strong>Recognized by <a href="https://en.wikipedia.org/wiki/Nick_Bostrom">Nick Bostrom</a></strong><br>In <cite>Superintelligence</cite>, Bostrom lists my Ph.D. work on evolving FreeCell solvers among the top achievements of game-playing AI, next to Deep Blue’s win over Kasparov and IBM Watson’s win in Jeopardy!</div></li>
 <li><span class="cv-year">2016</span><div><strong><a href="https://www.icore-algo.org.il/">I-CORE in Algorithms</a> Postdoctoral Fellowship</strong><br>The Israeli Council for Higher Education (CHE) and the Israel Science Foundation (ISF).</div></li>
 <li><span class="cv-year">2015</span><div><strong><a href="https://cis.ieee.org/award-recipients.html#TCIAIGOutstandingPaperAward">Outstanding TCIAIG Journal Paper Award</a></strong> for “Evolutionary Design of FreeCell Solvers”<br>IEEE Computational Intelligence Society.</div></li>
