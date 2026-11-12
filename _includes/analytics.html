@@ -1,9 +1,18 @@
 {%- if site.google_analytics and jekyll.environment == "production" -%}
-<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics | url_encode }}"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  // Consent Mode: nothing is stored until the visitor accepts (see consent-banner.html).
+  var analyticsConsent = null;
+  try { analyticsConsent = localStorage.getItem("analytics-consent"); } catch (e) {}
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: analyticsConsent === 'granted' ? 'granted' : 'denied'
+  });
   gtag('js', new Date());
   gtag('config', {{ site.google_analytics | jsonify }});
 </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics | url_encode }}"></script>
 {%- endif -%}

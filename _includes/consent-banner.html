@@ -1,0 +1,52 @@
+{%- if site.google_analytics and jekyll.environment == "production" -%}
+<div class="consent" id="consent-banner" role="region" aria-label="Cookie consent" hidden>
+  <p>This site uses Google Analytics cookies to count visits. They are only set if you accept.</p>
+  <div class="consent-actions">
+    <button type="button" class="consent-decline" data-consent="denied">Decline</button>
+    <button type="button" class="consent-accept" data-consent="granted">Accept</button>
+  </div>
+</div>
+<script>
+  (function () {
+    var KEY = "analytics-consent";
+    var banner = document.getElementById("consent-banner");
+
+    function stored() {
+      try { return localStorage.getItem(KEY); } catch (e) { return null; }
+    }
+
+    // Removes Google Analytics cookies from this host and each parent domain.
+    function clearAnalyticsCookies() {
+      var parts = location.hostname.split(".");
+      document.cookie.split(";").forEach(function (c) {
+        var name = c.split("=")[0].trim();
+        if (name.indexOf("_ga") !== 0) return;
+        for (var i = 0; i < parts.length - 1; i++) {
+          var domain = parts.slice(i).join(".");
+          document.cookie = name + "=; Max-Age=0; path=/; domain=" + domain;
+        }
+        document.cookie = name + "=; Max-Age=0; path=/";
+      });
+    }
+
+    function choose(value) {
+      try { localStorage.setItem(KEY, value); } catch (e) {}
+      gtag("consent", "update", { analytics_storage: value });
+      if (value === "denied") clearAnalyticsCookies();
+      banner.hidden = true;
+    }
+
+    banner.querySelectorAll("[data-consent]").forEach(function (btn) {
+      btn.addEventListener("click", function () { choose(btn.getAttribute("data-consent")); });
+    });
+    document.querySelectorAll("[data-consent-open]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        banner.hidden = false;
+        banner.querySelector("button").focus();
+      });
+    });
+
+    if (!stored()) banner.hidden = false;
+  })();
+</script>
+{%- endif -%}
