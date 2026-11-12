@@ -1,6 +1,8 @@
 title: "Dr. Achiya Elyasaf"
 url: "https://achiya.elyasaf.net"
 baseurl: ""
+# GA4 Measurement ID; the tag is only emitted in production builds (JEKYLL_ENV=production).
+google_analytics: "G-B9KP3X378E"
 
 exclude:
   - .superpowers
