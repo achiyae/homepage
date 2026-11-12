@@ -1,0 +1,12 @@
+{%- comment -%}
+  Renders the BibTeX entries in include.keys (in the given order) with the same template as
+  the Publications page. Each <li> gets id="TOPIC-KEY" (include.topic) so the page text can
+  link to it, and the same paper can be listed under several topics without duplicate ids.
+{%- endcomment -%}
+<ol class="pub-list">
+{%- for key in include.keys -%}
+  {%- capture entry -%}{% bibliography --query @*[key={{ key }}] %}{%- endcapture -%}
+  {%- capture anchored -%}<li class="pub" id="{{ include.topic }}-{{ key }}"{%- endcapture -%}
+  {{ entry | replace: '<ol class="bibliography">', "" | replace: "</ol>", "" | replace: "<bib-item>", "" | replace: "</bib-item>", "" | replace_first: '<li class="pub"', anchored }}
+{%- endfor %}
+</ol>
