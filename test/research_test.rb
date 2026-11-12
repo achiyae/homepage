@@ -2,8 +2,6 @@ require_relative "test_helper"
 
 class ResearchTest < Minitest::Test
   TITLES = [
-    "BERT Mutation: Deep Transformer Model for Masked Uniform Mutation in Genetic Programming",
-    "Deep Neural Crossover: A Multi-Parent Operator That Leverages Gene Correlations",
     "Towards Better Interoperability Between Software and AI",
     "What Petri Nets Oblige Us to Say: Comparing Approaches for Behavior Composition",
     "EC-KitY",
@@ -17,7 +15,7 @@ class ResearchTest < Minitest::Test
 
   def test_talk_badge
     doc = site_html("/research/")
-    assert_equal "talk", doc.css(".highlight")[2].at_css(".highlight-kind").text.strip
+    assert_equal "talk", doc.css(".highlight")[0].at_css(".highlight-kind").text.strip
   end
 
   def test_card_without_image
