@@ -8,6 +8,9 @@
     <span class="highlight-kind">{{ h.kind | escape }}</span>
     {%- endif %}
     <h3><a href="{{ h.link | escape }}">{{ h.title }}</a></h3>
+    {%- if h.meta %}
+    <p class="highlight-meta">{{ h.meta | escape }}</p>
+    {%- endif %}
     {{ h.summary | markdownify }}
   </div>
 </article>
