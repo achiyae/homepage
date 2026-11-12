@@ -3,16 +3,6 @@ title: "Research"
 layout: default
 permalink: /research/
 highlights:
-- title: "BERT Mutation: Deep Transformer Model for Masked Uniform Mutation in Genetic Programming"
-  kind: paper
-  link: https://www.mdpi.com/2227-7390/13/5/779
-  image: "/assets/img/research/bert-mutation.jpg"
-  summary: "A domain-independent mutation operator for Genetic Programming that uses Masked Language Modeling with a BERT transformer and deep reinforcement learning to suggest node replacements. Evaluated on three benchmark domains, it outperforms conventional and state-of-the-art mutation operators in convergence speed and solution quality."
-- title: "Deep Neural Crossover: A Multi-Parent Operator That Leverages Gene Correlations"
-  kind: paper
-  link: https://dl.acm.org/doi/10.1145/3638529.3654020
-  image: "/assets/img/research/deep-neural-crossover.jpg"
-  summary: "A multi-parent crossover operator for genetic algorithms that uses deep reinforcement learning and an encoder-decoder architecture to learn which genes to select. It outperforms all baseline operators on two benchmark domains."
 - title: "Towards Better Interoperability Between Software and AI"
   kind: talk
   link: https://www.youtube.com/watch?v=yD6o_-ZKogs
@@ -35,7 +25,14 @@ highlights:
 ---
 # Research
 
-My research looks for new synergies between software engineering and artificial intelligence. Selected highlights:
+My research looks for new synergies between software engineering and artificial intelligence.
+
+<div class="research-feature">
+<h2><a href="{{ '/research/dl-operators/' | relative_url }}">Deep-learning-based evolutionary operators</a></h2>
+<p>Crossover, mutation and selection operators that learn how to search while evolution runs, and ML models that approximate costly fitness evaluations. Seven papers since 2024.</p>
+</div>
+
+Selected highlights:
 
 <div class="highlights">
 {%- for h in page.highlights %}
