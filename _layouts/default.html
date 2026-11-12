@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Literata:ital,opsz,wght@0,7..72,400..700;1,7..72,400..700&display=swap">
   <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+  {% include analytics.html %}
 </head>
 <body class="page-{{ page.url | split: '/' | last | default: 'home' }}">
   <a class="skip-link" href="#main">Skip to content</a>
